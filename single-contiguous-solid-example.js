@@ -6,6 +6,7 @@
 // I — Interface segregation principle
 // D — Dependency Inversion principle
 
+// *******************************************************
 // # Single responsibility principle
 // A class should have one and only one reason to change, meaning that a class should only have one job.
 // For example, say we have some shapes and we wanted to sum all the areas of the shapes. Well this is pretty simple right ?
@@ -66,6 +67,8 @@ console.log(output.HTML());
 console.log(output.JADE());
 
 //   Now, whatever logic you need to output the data to the users is now handled by the sumCalculatorOutputter factory function.
+
+// ********************************************************
 //   # Open-closed Principle
 //   Objects or entities should be open for extension, but closed for modification.
 //   Open for extension means that we should be able to add new features or components to the application without breaking existing code.
@@ -188,6 +191,8 @@ const areaCalculator = (s) => {
 };
 
 //   and again, since JavaScript doesn’t have support for interfaces like typed languages the example above demonstrates how we can simulate it, but more than simulating interfaces, what we are doing is using closures and function composition if you don’t know what are a closure is this article explains it very well and for complementation see this video.
+
+// **************************************************
 //   # Liskov substitution principle
 //   Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
 //   All this is stating is that every subclass/derived class should be substitutable for their base/parent class.
@@ -203,6 +208,7 @@ const volumeCalculator = (s) => {
     return Object.assign(Object.create(inherit), { shapes: s });
 };
 
+// **********************************************************
 //   # Interface segregation principle
 //   A client should never be forced to implement an interface that it doesn’t use or clients shouldn’t be forced to depend on methods they do not use.
 //   Continuing with our shapes example, we know that we also have solid shapes, so since we would also want to calculate the volume of the shape, we can add another contract to the shapeInterface:
