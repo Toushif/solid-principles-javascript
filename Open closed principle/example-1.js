@@ -71,6 +71,7 @@ class Product {
     }
 }
 
+// so we make the first filter which is the color filter and it has only one method that checks if an item's color is what we need
 class ColorFilter {
     constructor(color) {
         this.criteria = color;
@@ -95,12 +96,15 @@ class AndFilter {
         return this.criterias.every((f) => f.isOk(item));
     }
 }
+
+// Now we make our ProductFilter that will use the color filter As you can see it takes the products and the a filter and loop through the products to check if the product is ok with the filter constraints.
 class ProductFilter {
     filter(products, xFilter) {
         return products.filter((p) => xFilter.isOk(p));
     }
 }
 
+// to make things lets test this structure we will make some dumb products as you can see and then create a product filter instance.
 const pf = new ProductFilter();
 let apple = new Product("Apple", "green", "small");
 let tree = new Product("Tree", "green", "large");
@@ -109,11 +113,17 @@ let house = new Product("House", "blue", "large");
 let products = [apple, tree, house];
 console.log(`Only green \n`);
 
+// now how to use the color filter we make a color filter that filters by the color green then use it in our product filter to filter the products
 const filterByGreen = new ColorFilter("green");
 const filteredProducts = pf.filter(products, filterByGreen);
+
+// now if we console logged our filtered products we get
 for (let p of filteredProducts) {
     console.log(`# ${p.name} is green`);
 }
+// Output -
+// Apple is green
+// Tree is green
 
 console.log(`\n green and large \n`);
 for (let p of pf.filter(
@@ -122,3 +132,6 @@ for (let p of pf.filter(
 )) {
     console.log(`# ${p.name} is green and large`);
 }
+
+// now what if we want to add a new filter to filter by size? we will construct a new class that filters by size as above
+// as you can see we never modified an existing class, instead we extended our design to have another class and we never have to modify an already tested production class Now let's add another filter to filter by both size and color
