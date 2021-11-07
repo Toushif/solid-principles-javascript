@@ -1,3 +1,4 @@
+
 // S.O.L.I.D. STANDS FOR:
 // S — Single responsibility principle
 // O — Open closed principle

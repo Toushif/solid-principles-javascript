@@ -76,11 +76,19 @@ new Research(rels);
 // Better Approach :
 // We make a better design by mainly not making Research class depends on the Relationships class or at least minimize it. As you read from the definition high level classes (Research) should not depend on low level classes (Relationships) instead it should depend on abstraction. Unfortunately there is nothing called abstraction in javascript but we will use something to wrap around it. Abstraction class or interface is simply a class with one or more abstract methods these abstracts methods have no implementation and the classes inherets from this interface or abstract must provide an implementation for these methods. This diagram shows how classes are connected
 
-DIP_Interface.svg;
+let Relationship = Object.freeze({
+    parent: 0,
+    child: 1,
+    sibling: 2,
+});
 
-// now we will implement the interface we call it
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+}
 
-// abstract/interface class
+// now we will implement the interface we call it abstract/interface class
 class RelationshipBrowser {
     constructor() {
         // this is an interface it should not be instantiated
@@ -127,4 +135,15 @@ class Research {
         }
     }
 }
+
+let parent = new Person("John");
+let child1 = new Person("Chris");
+let child2 = new Person("Matt");
+
+// low-level module
+let rels = new Relationships();
+rels.addParentAndChild(parent, child1);
+rels.addParentAndChild(parent, child2);
+
+new Research(rels);
 // as you can see now the high level class (Research) doesn't any more depend on the low level class (Relationships) instead it depends on the abstraction. Now if you make a change to the low level module you won't have to change the high level module.
