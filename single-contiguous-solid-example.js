@@ -269,8 +269,8 @@ const circle = (radius) => {
         area: (args) => Math.PI * Math.pow(args.radius, 2),
     };
     const basics = shapeInterface(proto);
-    const abstraccion = manageShapeInterface(() => basics.area());
-    const composite = Object.assign({}, basics, abstraccion);
+    const abstraction = manageShapeInterface(() => basics.area());
+    const composite = Object.assign({}, basics, abstraction);
     return Object.assign(Object.create(composite), { radius });
 };
 const cubo = (length) => {
@@ -282,10 +282,10 @@ const cubo = (length) => {
     };
     const basics = shapeInterface(proto);
     const complex = solidShapeInterface(proto);
-    const abstraccion = manageShapeInterface(
+    const abstraction = manageShapeInterface(
         () => basics.area() + complex.volume()
     );
-    const composite = Object.assign({}, basics, abstraccion);
+    const composite = Object.assign({}, basics, abstraction);
     return Object.assign(Object.create(composite), { length });
 };
 
@@ -302,13 +302,13 @@ const manageShapeInterface = (fn) => ({
 //   const square = (radius) => {
 //     // code
 
-//     const abstraccion = manageShapeInterface(() => basics.area())
+//     const abstraction = manageShapeInterface(() => basics.area())
 
 //    // more code ...
 //   }
 //   const cubo = (length) => {
 //     // code
-//     const abstraccion = manageShapeInterface(
+//     const abstraction = manageShapeInterface(
 //       () => basics.area() + complex.volume()
 //     )
 //     // more code ...
