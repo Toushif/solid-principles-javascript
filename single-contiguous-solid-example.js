@@ -192,6 +192,7 @@ const areaCalculator = (s) => {
 
 //   and again, since JavaScript doesn’t have support for interfaces like typed languages the example above demonstrates how we can simulate it, but more than simulating interfaces, what we are doing is using closures and function composition if you don’t know what are a closure is this article explains it very well and for complementation see this video.
 
+
 // **************************************************
 //   # Liskov substitution principle
 //   Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
